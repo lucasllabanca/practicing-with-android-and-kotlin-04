@@ -53,17 +53,20 @@ object ProductRepository {
                     Log.w(TAG, "Listen failed.", firebaseFirestoreException)
                     return@addSnapshotListener //return only from the scope of the method addSna...
                 }
+
+                val products = ArrayList<Product>()
                 if (querySnapshot != null && !querySnapshot.isEmpty) {
-                    val products = ArrayList<Product>()
+
                     querySnapshot.forEach {
                         val product = it.toObject<Product>()
                         product.id = it.id //this is needed because its not a field, its de id of the document
                         products.add(product)
                     }
-                    liveProducts.postValue(products)
+
                 } else {
                     Log.d(TAG, "No product has been found")
                 }
+                liveProducts.postValue(products)
             }
 
         return liveProducts //this is returned right away, then listens to new products being posted with liveProducts.postValue(products)
