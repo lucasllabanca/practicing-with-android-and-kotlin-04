@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="product"
+            type="br.com.labanca.androidproject04.persistence.Product" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtProductListItemName"
+            android:layout_width="0dp"
+            android:layout_height="46dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0.40"
+            android:paddingStart="8dip"
+            android:paddingTop="12dip"
+            android:paddingBottom="12dip"
+            android:text="@{product.name}"
+            tools:text="Product 1"
+            android:textAlignment="viewStart"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/txtProductListItemCode"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtProductListItemCode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0.30"
+            android:minWidth="70dp"
+            android:paddingStart="8dip"
+            android:paddingTop="12dip"
+            android:paddingEnd="8dip"
+            android:paddingBottom="12dip"
+            android:text="@{product.code}"
+            tools:text="COD123"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintEnd_toStartOf="@+id/txtProductListItemPrice"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtProductListItemPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0.30"
+            android:minWidth="40dp"
+            android:paddingStart="8dip"
+            android:paddingTop="12dip"
+            android:paddingEnd="8dip"
+            android:paddingBottom="12dip"
+            app:productPrice="@{product.price}"
+            tools:text="$ 30,00"
+            android:textAlignment="center"
+            android:textSize="14sp"
+            android:textStyle="normal"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </LinearLayout>
+
+</layout>
