@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import br.com.labanca.androidproject04.databinding.FragmentProductsListBinding
+import com.google.firebase.analytics.FirebaseAnalytics
 
 private const val TAG = "ProductsListFragment"
 class ProductsListFragment: Fragment() {
@@ -41,6 +42,9 @@ class ProductsListFragment: Fragment() {
         })
 
         binding.fab.setOnClickListener { view ->
+            val firebaseAnalytics = FirebaseAnalytics.getInstance(this.requireContext())
+            firebaseAnalytics.logEvent("new_item", null)
+            
             this.findNavController()
                 .navigate(ProductsListFragmentDirections.actionShowProductDetail(null))
         }

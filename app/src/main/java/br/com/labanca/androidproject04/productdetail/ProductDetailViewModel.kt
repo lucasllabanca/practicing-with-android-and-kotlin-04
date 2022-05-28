@@ -1,5 +1,6 @@
 package br.com.labanca.androidproject04.productdetail
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -24,6 +25,14 @@ class ProductDetailViewModel(private val code: String?): ViewModel() {
 
     private fun getProduct(productCode: String) {
         product = ProductRepository.getProductByCode(productCode)
+    }
+
+    @SuppressLint("NullSafeMutableLiveData")
+    fun deleteProduct() {
+        if (product.value?.id != null) {
+            ProductRepository.deleteProduct(product.value!!.id!!)
+            product.value = null
+        }
     }
 
     //when leaves the activity, saves the product. no save button needed
