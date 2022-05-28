@@ -11,7 +11,7 @@ private const val TAG = "ProductDetailViewModel"
 
 class ProductDetailViewModel(private val code: String?): ViewModel() {
 
-    private lateinit var product: MutableLiveData<Product> //its created in the repo
+    lateinit var product: MutableLiveData<Product> //its created in the repo
 
     init {
         if (code != null) {

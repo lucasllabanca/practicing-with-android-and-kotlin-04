@@ -2,6 +2,8 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="br.com.labanca.androidproject04.product.PriceConverter"/>
+
         <variable
             name="productDetailViewModel"
             type="br.com.labanca.androidproject04.productdetail.ProductDetailViewModel" />
@@ -39,7 +41,7 @@
                 android:ems="10"
                 android:inputType="textCapWords"
                 android:textSize="24sp"
-                android:text="@{productDetailViewModel.product.name}"
+                android:text="@={productDetailViewModel.product.name}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView2" />
@@ -69,7 +71,7 @@
                 android:ems="10"
                 android:inputType="textCapCharacters"
                 android:textSize="24sp"
-                android:text="@{productDetailViewModel.product.code}"
+                android:text="@={productDetailViewModel.product.code}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -99,7 +101,7 @@
                 android:ems="10"
                 android:inputType="textCapSentences"
                 android:textSize="24sp"
-                android:text="@{productDetailViewModel.product.description}"
+                android:text="@={productDetailViewModel.product.description}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView5" />
@@ -130,7 +132,7 @@
                 android:ems="10"
                 android:inputType="numberSigned|numberDecimal"
                 android:textSize="24sp"
-                app:productPrice="@{productDetailViewModel.product.price}"
+                android:text="@={PriceConverter.priceToString(productDetailViewModel.product.price)}"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
